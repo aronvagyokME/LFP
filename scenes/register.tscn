@@ -1,0 +1,129 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc17istw0rwr3"]
+
+[ext_resource type="Theme" uid="uid://bf7785fhrwbab" path="res://resources/themes/theme.tres" id="1_3eyob"]
+[ext_resource type="Script" path="res://scripts/Register.cs" id="2_4qrl1"]
+[ext_resource type="Texture2D" uid="uid://7mfxcdhpk7ud" path="res://assets/icon.svg" id="2_temm2"]
+
+[node name="Register" type="Window"]
+title = "Regisztráció"
+initial_position = 2
+size = Vector2i(900, 500)
+unresizable = true
+theme = ExtResource("1_3eyob")
+script = ExtResource("2_4qrl1")
+_email = NodePath("CenterContainer/VBoxContainer/HBoxContainer/LineEdit")
+_username = NodePath("CenterContainer/VBoxContainer/HBoxContainer2/LineEdit")
+_password = NodePath("CenterContainer/VBoxContainer/HBoxContainer3/LineEdit")
+_password2 = NodePath("CenterContainer/VBoxContainer/HBoxContainer4/LineEdit")
+_checkbox = NodePath("CenterContainer/VBoxContainer/HBoxContainer7/CheckBox")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_temm2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+text = "Email"
+horizontal_alignment = 2
+
+[node name="LineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+placeholder_text = "Adja meg az emal címet"
+max_length = 50
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+text = "Felhasználónév"
+horizontal_alignment = 2
+
+[node name="LineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+placeholder_text = "Adja meg a felhasználó névet"
+max_length = 50
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+text = "Jelszó"
+horizontal_alignment = 2
+
+[node name="LineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+placeholder_text = "Adja meg a jelszavát"
+max_length = 50
+secret = true
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+text = "Jelszó megerősítése"
+horizontal_alignment = 2
+
+[node name="LineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+placeholder_text = "Adja meg a jelszavát újra"
+max_length = 50
+secret = true
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer7"]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+text = "ÁSZF elfogadása"
+horizontal_alignment = 2
+
+[node name="CheckBox" type="CheckBox" parent="CenterContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+text = "Elfogadom az Általános Szerződési Feltételeket"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+text = "Regisztráció"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+text = "Vissza"
+
+[connection signal="close_requested" from="." to="." method="OnCloseRequested"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer5/Button" to="." method="OnRegisterPressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer6/Button" to="." method="OnBackPressed"]

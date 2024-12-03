@@ -1,0 +1,30 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bf7785fhrwbab"]
+
+[ext_resource type="StyleBox" uid="uid://c6f18c5n2h50n" path="res://resources/styles/button_style_focus.tres" id="1_1oqdm"]
+[ext_resource type="StyleBox" uid="uid://6wuw52hvyx37" path="res://resources/styles/button_style_hover.tres" id="2_0nkmq"]
+[ext_resource type="StyleBox" uid="uid://dmb557f8u1p2f" path="res://resources/styles/button_style_normal.tres" id="3_i7scm"]
+[ext_resource type="StyleBox" uid="uid://enl6t5yrdrds" path="res://resources/styles/label_style_normal.tres" id="4_xam7p"]
+[ext_resource type="StyleBox" uid="uid://cp8iwsqvbtrwh" path="res://resources/styles/lineedit_stlye_normal.tres" id="5_e8dt4"]
+[ext_resource type="SystemFont" uid="uid://btbafaafsf3s3" path="res://resources/fonts/default_font.tres" id="6_qba1s"]
+[ext_resource type="StyleBox" uid="uid://dnm8smcf3minm" path="res://resources/styles/panelcontainer_style.tres" id="6_s7fc2"]
+
+[resource]
+default_font = ExtResource("6_qba1s")
+default_font_size = 18
+Button/colors/font_color = Color(0.0980392, 0.101961, 0.0980392, 1)
+Button/colors/font_focus_color = Color(0.0980392, 0.101961, 0.0980392, 1)
+Button/colors/font_hover_color = Color(0.0980392, 0.101961, 0.0980392, 1)
+Button/colors/font_hover_pressed_color = Color(0.847059, 0.913725, 0.658824, 1)
+Button/colors/font_pressed_color = Color(0.0980392, 0.101961, 0.0980392, 1)
+Button/styles/focus = ExtResource("1_1oqdm")
+Button/styles/hover = ExtResource("2_0nkmq")
+Button/styles/normal = ExtResource("3_i7scm")
+Label/colors/font_color = Color(0.0980392, 0.101961, 0.0980392, 1)
+Label/styles/normal = ExtResource("4_xam7p")
+LineEdit/colors/caret_color = Color(0.0980392, 0.101961, 0.0980392, 1)
+LineEdit/colors/font_color = Color(0.847059, 0.913725, 0.658824, 1)
+LineEdit/colors/font_selected_color = Color(0.0980392, 0.101961, 0.0980392, 1)
+LineEdit/colors/selection_color = Color(0.847059, 0.913725, 0.658824, 1)
+LineEdit/styles/normal = ExtResource("5_e8dt4")
+PanelContainer/styles/panel = ExtResource("6_s7fc2")
+RichTextLabel/colors/default_color = Color(0.0980392, 0.101961, 0.0980392, 1)

@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch77e1ulidkfg"]
+
+[ext_resource type="Theme" uid="uid://bf7785fhrwbab" path="res://resources/themes/theme.tres" id="1_hmlbv"]
+[ext_resource type="Script" path="res://scripts/Profile.cs" id="2_2e6um"]
+
+[node name="Profile" type="Window"]
+title = "Profil"
+initial_position = 2
+size = Vector2i(900, 500)
+unresizable = true
+theme = ExtResource("1_hmlbv")
+script = ExtResource("2_2e6um")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Meghírdetett termékek"
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Eladott Termékek"
+
+[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Vásárolt termékek"
+
+[node name="Button4" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Értékeléseim"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="close_requested" from="." to="." method="OnCloseRequested"]

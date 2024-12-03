@@ -1,0 +1,129 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqldcg2bw1bqq"]
+
+[ext_resource type="Theme" uid="uid://bf7785fhrwbab" path="res://resources/themes/theme.tres" id="1_ddtc4"]
+[ext_resource type="Script" path="res://scripts/ProfileEditor.cs" id="2_04ciu"]
+
+[node name="ProfileEditor" type="Window"]
+title = "Profil szerkesztése"
+initial_position = 2
+size = Vector2i(900, 500)
+theme = ExtResource("1_ddtc4")
+script = ExtResource("2_04ciu")
+_name = NodePath("MarginContainer/VBoxContainer/GridContainer/LineEdit")
+_email = NodePath("MarginContainer/VBoxContainer/GridContainer/LineEdit2")
+_phone = NodePath("MarginContainer/VBoxContainer/GridContainer/LineEdit3")
+_password = NodePath("MarginContainer/VBoxContainer/GridContainer/HBoxContainer/LineEdit4")
+_new_password = NodePath("MarginContainer/VBoxContainer/GridContainer/HBoxContainer/LineEdit")
+_zip_code = NodePath("MarginContainer/VBoxContainer/GridContainer/HBoxContainer2/LineEdit")
+_settlement = NodePath("MarginContainer/VBoxContainer/GridContainer/HBoxContainer2/LineEdit2")
+_street = NodePath("MarginContainer/VBoxContainer/GridContainer/HBoxContainer2/LineEdit3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Felhasználónév:"
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+editable = false
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Email cím:"
+
+[node name="LineEdit2" type="LineEdit" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Telefonszám: "
+
+[node name="LineEdit3" type="LineEdit" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+placeholder_text = "Adj meg egy valós telefonszámot!"
+
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Jelszó: 
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LineEdit4" type="LineEdit" parent="MarginContainer/VBoxContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Jelenlegi jelszó"
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Új jelszó"
+
+[node name="Label5" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Szállítási cím:"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/GridContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Irányítószám"
+max_length = 4
+
+[node name="LineEdit2" type="LineEdit" parent="MarginContainer/VBoxContainer/GridContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Település"
+max_length = 100
+
+[node name="LineEdit3" type="LineEdit" parent="MarginContainer/VBoxContainer/GridContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Utca és házszám"
+max_length = 100
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Frissítés"
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Visszaállítás"
+
+[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Mégsem"
+
+[connection signal="close_requested" from="." to="." method="OnCloseRequested"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Button" to="." method="_On_Update_Pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Button2" to="." method="_On_Reset_Pressed"]

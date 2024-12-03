@@ -1,0 +1,89 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmcwt0h524073"]
+
+[ext_resource type="Texture2D" uid="uid://7mfxcdhpk7ud" path="res://assets/icon.svg" id="1_2mqgd"]
+[ext_resource type="Theme" uid="uid://bf7785fhrwbab" path="res://resources/themes/theme.tres" id="1_obt3v"]
+[ext_resource type="Script" path="res://scripts/Card.cs" id="2_774fe"]
+
+[node name="Card" type="Control"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_obt3v")
+script = ExtResource("2_774fe")
+_titlePath = NodePath("PanelContainer/HBoxContainer/VBoxContainer/Label")
+_descriptonPath = NodePath("PanelContainer/HBoxContainer/VBoxContainer/RichTextLabel")
+_reviewPath = NodePath("PanelContainer/HBoxContainer/GridContainer/Label2")
+_quantityPath = NodePath("PanelContainer/HBoxContainer/GridContainer/Label4")
+_pricePath = NodePath("PanelContainer/HBoxContainer/GridContainer/Label6")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 128.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_2mqgd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 20
+text = "Ez egy cím"
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Ez egy hosszú szöveg amit lehet tördelni, amint az ablak méretét módosítják"
+scroll_active = false
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+columns = 2
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Értékelés:"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="PanelContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+text = "4/5"
+
+[node name="Label3" type="Label" parent="PanelContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Mennyiség:"
+horizontal_alignment = 2
+
+[node name="Label4" type="Label" parent="PanelContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+text = "3/20
+"
+
+[node name="Label5" type="Label" parent="PanelContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Ár:"
+horizontal_alignment = 2
+
+[node name="Label6" type="Label" parent="PanelContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+text = "12 ft/db
+"

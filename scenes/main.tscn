@@ -1,0 +1,155 @@
+[gd_scene load_steps=13 format=3 uid="uid://y62et5a3nhar"]
+
+[ext_resource type="Theme" uid="uid://bf7785fhrwbab" path="res://resources/themes/theme.tres" id="1_u3icd"]
+[ext_resource type="Texture2D" uid="uid://00ljuakfd5vk" path="res://assets/user_icon_1.tres" id="2_b22vj"]
+[ext_resource type="Texture2D" uid="uid://7mfxcdhpk7ud" path="res://assets/icon.svg" id="2_e2mka"]
+[ext_resource type="Script" path="res://scripts/Main.cs" id="2_u2spa"]
+[ext_resource type="PackedScene" uid="uid://dppxn25g13jmh" path="res://scenes/add_product.tscn" id="3_wrii7"]
+[ext_resource type="Script" path="res://scripts/ProductContainer.cs" id="4_ailed"]
+[ext_resource type="Script" path="res://scripts/Menu.cs" id="4_w6b8x"]
+[ext_resource type="PackedScene" uid="uid://16eoupq77vg" path="res://scenes/login.tscn" id="5_ujk01"]
+[ext_resource type="Script" path="res://scripts/Updater.cs" id="6_7syjk"]
+[ext_resource type="PackedScene" uid="uid://ch77e1ulidkfg" path="res://scenes/profile.tscn" id="6_x1e2t"]
+[ext_resource type="PackedScene" uid="uid://bqldcg2bw1bqq" path="res://scenes/profile_editor.tscn" id="7_mpae3"]
+[ext_resource type="PackedScene" uid="uid://bmcwt0h524073" path="res://scenes/card.tscn" id="11_tgpd4"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_u3icd")
+script = ExtResource("2_u2spa")
+_add_product = ExtResource("3_wrii7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_e2mka")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.025
+anchor_top = 0.025
+anchor_right = 0.975
+anchor_bottom = 0.975
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+placeholder_text = "Keresés..."
+max_length = 250
+
+[node name="MenuButton" type="MenuButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+icon = ExtResource("2_b22vj")
+item_count = 3
+popup/item_0/text = "Profil"
+popup/item_1/text = "Profil szerkesztése"
+popup/item_1/id = 1
+popup/item_2/text = "Kijelentkezés"
+popup/item_2/id = 2
+script = ExtResource("4_w6b8x")
+_login = ExtResource("5_ujk01")
+_profile = ExtResource("6_x1e2t")
+_profile_editor = ExtResource("7_mpae3")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 0)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hírdetett termékek"
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 0)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hírdetés feladás"
+
+[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 0)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Térkép
+"
+
+[node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 0)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hírdetés árazás
+"
+
+[node name="Button5" type="Button" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 0)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Top termékek
+"
+
+[node name="Button6" type="Button" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 0)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Top eladók
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer3/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+script = ExtResource("4_ailed")
+_card = ExtResource("11_tgpd4")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+script = ExtResource("6_7syjk")
+_product_container = NodePath("../VBoxContainer/MarginContainer/HBoxContainer3/ScrollContainer/VBoxContainer")
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Button2" to="." method="_On_Add_Product_Pressed"]
+[connection signal="timeout" from="Timer" to="Timer" method="_On_Timeout"]

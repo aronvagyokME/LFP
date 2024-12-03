@@ -1,0 +1,106 @@
+[gd_scene load_steps=3 format=3 uid="uid://dppxn25g13jmh"]
+
+[ext_resource type="Theme" uid="uid://bf7785fhrwbab" path="res://resources/themes/theme.tres" id="1_qjvr2"]
+[ext_resource type="Script" path="res://scripts/AddProduct.cs" id="2_tt1rf"]
+
+[node name="AddProduct" type="Window"]
+title = "Termék hírdetése"
+initial_position = 2
+size = Vector2i(900, 500)
+theme = ExtResource("1_qjvr2")
+script = ExtResource("2_tt1rf")
+_name = NodePath("Control/VBoxContainer/GridContainer/LineEdit")
+_description = NodePath("Control/VBoxContainer/GridContainer/TextEdit")
+_amount = NodePath("Control/VBoxContainer/GridContainer/SpinBox")
+_price = NodePath("Control/VBoxContainer/GridContainer/HBoxContainer/SpinBox2")
+_unit = NodePath("Control/VBoxContainer/GridContainer/HBoxContainer/OptionButton")
+
+[node name="Control" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Termék neve:"
+
+[node name="LineEdit" type="LineEdit" parent="Control/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+placeholder_text = "Adj meg egy nevet a terméknek"
+max_length = 60
+
+[node name="Label2" type="Label" parent="Control/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Termék leírása:"
+
+[node name="TextEdit" type="TextEdit" parent="Control/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+placeholder_text = "Adj meg egy termék leírást"
+
+[node name="Label3" type="Label" parent="Control/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Elérhető mennyiség:"
+
+[node name="SpinBox" type="SpinBox" parent="Control/VBoxContainer/GridContainer"]
+layout_mode = 2
+min_value = 1.0
+value = 1.0
+suffix = "darab"
+
+[node name="Label4" type="Label" parent="Control/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Egységár: "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SpinBox2" type="SpinBox" parent="Control/VBoxContainer/GridContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 1e+07
+step = 0.1
+suffix = " FT"
+
+[node name="OptionButton" type="OptionButton" parent="Control/VBoxContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "DB"
+popup/item_1/text = "KG"
+popup/item_1/id = 1
+popup/item_2/text = "G"
+popup/item_2/id = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+
+[node name="Button" type="Button" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Feladás"
+
+[node name="Button2" type="Button" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Mégsem"
+
+[connection signal="close_requested" from="." to="." method="OnCloseRequested"]
+[connection signal="pressed" from="Control/VBoxContainer/HBoxContainer/Button" to="." method="_On_Accept_Pressed"]
