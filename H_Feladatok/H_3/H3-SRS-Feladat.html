@@ -1,0 +1,686 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html style="direction: ltr;">
+<head>
+
+	
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+
+	
+	
+  <title>SRS</title>
+  <meta name="GENERATOR" content="OpenOffice.org 1.1.3  (Win32)">
+
+	
+  <meta name="AUTHOR" content="">
+
+	
+  <meta name="CREATED" content="">
+
+	
+  <meta name="CHANGEDBY" content="">
+
+	
+  <meta name="CHANGED" content="">
+
+	
+  <style>
+		@page { margin: 2cm }
+		P { margin-bottom: 0.21cm; font-family: Arial, sans-serif}
+    P.info {margin-bottom: 0cm; text-align: left; font-size: 22pt;}
+    P.title {margin-bottom: 0cm; text-align: center; font-size: 35pt}
+    P.pl {margin-bottom: 0cm; text-align: center; font-size: 13pt;}
+    P.date
+		H1 { margin-bottom: 0.21cm }
+		H1.western { font-family: "Arial", sans-serif; font-size: 16pt; }
+		H1.cjk { font-size: 16pt }
+		H1.ctl { font-size: 16pt }
+		H2 { margin-bottom: 0.21cm }
+		H2.western { font-family: "Arial", sans-serif; font-size: 14pt; font-style: italic }
+		H2.cjk { font-size: 14pt; font-style: italic }
+		H2.ctl { font-size: 14pt; font-style: italic }
+		TD { margin-bottom: 0.21cm }
+		TH { margin-bottom: 0.21cm; font-style: italic; vertical-align: top; }
+    TR { height: 1cm}
+    OL {margin-bottom: 0.21cm; font-family: Arial, sans-serif;}
+    UL {margin-bottom: 0.21cm; font-family: Arial, sans-serif;}
+    LI {margin-bottom: 0.21cm; font-family: Arial, sans-serif;}
+	</style>
+</head>
+
+
+<body>
+
+  <p class="info">Csoport neve: Developers</p>
+  <p class="info">Feladat sorszáma: H3 </p>
+  <p class="info">Feladat címe: Software követelmény analízis (SRS)</p>
+
+  <br>
+
+  <p class="title"><b>DOKUMENTUM CÍME</b></p>
+  <p class="pl"><b>Gyakorlatvezető:</b></p>
+  <p style="margin-bottom: 0cm; font-size: 24;" align="center"> Dr. Mileff Péter</p>
+  <p style="margin-bottom: 0cm; font-size: 20;" align="left">Csoporttagok:</p>
+
+  <br>
+
+  <table border="1", cellpadding="4", cellspacing="3", width="90%">
+    <col width="118">
+    <col width="75">
+    <col width="264">
+
+    <tr>
+      <td><p>Vörös Vencel Ciprián</p>
+      <td><p>CO5GLF</p>
+      <td><p>vorosvencel0309@gmail.com</p>
+    </tr>
+    <tr>
+      <td>Bodnár Dániel</td>
+      <td>BVDP8C</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Leányvári Áron</td>
+      <td>CU5KNZ</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Kóró Marcell József</td>
+      <td>ZH049I</td>
+      <td></td>
+    </tr>	
+    <tr>
+      <td>Nagy Xavér</td>
+      <td>R8H3FT</td>
+      <td></td>
+    </tr>	
+  </table>
+
+  <br>
+
+  <p style="margin-bottom: 0cm; font-size: 12;" align="right"><b>2024.10.29</b></p>
+
+  <br>
+
+  <p style="margin-bottom: 0cm;" align="center"><b>Történet</b></p>
+
+  <table border="1" cellpadding="4" cellspacing="0" witdth="643">
+    <col width="86">
+    <col width="57">
+    <col width="314">
+    <col width="152">
+
+    <thead>
+      <tr>
+        <th>Dátum</th>
+        <th>Verzió</th>
+        <th>Leírás</th>
+        <th>Szerző</th>
+      </tr>
+    </thead>
+    <tr>
+      <td>2024.09.28</td>
+      <td>1.0</td>
+      <td>Dokumentum létrehozása</td>
+      <td>Vörös Vencel Ciprián</td>
+    </tr>
+    <tr>
+      <td>2024.10.23</td>
+      <td>1.1</td>
+      <td>H3-as dokumentum véglegesítése</td>
+      <td>Vörös Vencel Ciprián</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+
+  <br>
+
+  <ol><b>Tartalomjegyzék</b>
+    <li><a href="#1">Bevezetés</a></li>
+    <li><a href="#2">Áttekintés</a></li>
+    <li><a href="#3">A rendszer funkciói</a>
+      <ol>
+        <li><a href="#3.1">Funkcionális követelmények</a></li>
+        <li><a href="#3.2">Use Case Diagram</a></li>
+        <li><a href="#3.3">Use Case-ek kapcsolatainak leírása</a></li>
+      </ol>
+    </li>
+    <li><a href="#4">Használhatóság</a>
+      <ol>
+        <li><a href="#4.1">Betanulási idő</a></li>
+        <li><a href="#4.2">Tevékenység végrehajtási idő</a></li>
+        <li><a href="#4.3">A kezdő felhasználók betanulását segítő tulajdonságok</a></li>
+        <li><a href="#4.4">Betanulási támogatás lehetőségei</a></li>
+        <li><a href="#4.5">Felhasználói felület hasonlósága más alkalmazásokkal</a></li>
+        <li><a href="#4.6">Kompatibilitás más alkalmazásokkal</a></li>
+      </ol>
+    </li>
+    <li><a href="#5">Megbízhatóság</a>
+      <ol>
+        <li><a href="#5.1">Rendelkezésre állás</a></li>
+        <li><a href="#5.2">MTBF (Mean Time Between Failures)</a></li>
+        <li><a href="#5.3">MTTR (Mean Time To Repair)</a></li>
+        <li><a href="#5.4">A rendszer eredményeinek pontossága</a></li>
+      </ol>
+    </li>
+    <li><a href="#6">Teljesítmény Követelmények</a>
+      <ol>
+        <li><a href="#6.1">Válaszidők</a></li>
+        <li><a href="#6.2">Áteresztőképesség</a></li>
+        <li><a href="#6.3">Kapacitás</a></li>
+        <li><a href="#6.4">Korlátozott használhatóság idején elvárt teljesítmény</a></li>
+        <li><a href="#6.5">Erőforrásigények</a></li>
+      </ol>
+    </li>
+    <li><a href="#7">Támogatottsági követelmények</a>
+      <ol>
+        <li><a href="#7.1">Kódolási szabványok és elnevezési konvenciók</a></li>
+        <li><a href="#7.2">Karbantartóknak és üzemeltetőknek szánt funkciók</a></li>
+        <li><a href="#7.3">Naplózás</a></li>
+        <li><a href="#7.4">Segédalkalmazások</a></li>
+      </ol>
+    </li>
+    <li><a href="#8">Tervezési korlátozások</a>
+      <ol>
+        <li><a href="#8.1">Architektúra előírásai</a></li>
+        <li><a href="#8.2">Programozási nyelvek</a></li>
+        <li><a href="#8.3">Fejlesztőeszközök</a></li>
+        <li><a href="#8.4">Újra felhasználható elemek</a></li>
+        <li><a href="#8.5">Fejlesztési módszertan</a></li>
+      </ol>
+    </li>
+    <li><a href="#9">On-line dokumentáció és helpdesk</a>
+      <ol>
+        <li><a href="#9.1">Online dokumentáció</a></li>
+        <li><a href="#9.2">Beépített Help rendszer</a></li>
+      </ol>
+    </li>
+    <li><a href="#10">Felhasznált kész komponensek</a>
+      <ol>
+        <li><a href="#10.1">Nyílt forráskódú komponensek</a></li>
+        <li><a href="#10.2">Harmadik féltől vásárolt elemek</a></li>
+      </ol>
+    </li>
+    <li><a href="#11">Interfészek</a>
+      <ol>
+        <li><a href="#11.1">Felhasználói interfészek (User Interfaces)</a></li>
+        <li><a href="#11.2">Hardver interfészek (Hardware Interfaces)</a></li>
+        <li><a href="#11.3">Software interfészek</a></li>
+        <li><a href="#11.4">Kommunikációs interfészek (Communications Interfaces)</a></li>
+      </ol>
+    </li>
+    <li><a href="#12">Alkalmazott szabványok</a>
+      <ol>
+        <li><a href="#12.1">Kötelezően alkalmazandó szabványok (Mandatory Standards)</a></li>
+        <li><a href="#12.2">Választás alapján alkalmazott szabványok (Optional Standards)</a></li>
+      </ol>
+    </li>
+  </ol>
+
+  <br>
+
+  <h1 class="western"><a id="1"></a> 1. Bevezetés</h1>
+
+    <p> Az alkalmazás célja, hogy egy fenntartható vásárlói közösséget hozzon létre, amely támogatja a helyi termelőket, és elősegíti az ökológiai lábnyom csökkentését. Ez a platform a környezet iránti felelősségtudatot szem előtt tartva segíti a felhasználókat abban, hogy tudatosabb, fenntartható döntéseket hozzanak a mindennapokban.</p>
+    <p>Az alkalmazás térképalapú keresési lehetőséget biztosít, amely lehetővé teszi, hogy a felhasználók a közelükben található fenntartható piacokat, termelőket és helyi termékeket fedezzenek fel. Az egyszerű szűrőfunkciók segítségével a felhasználók kiválaszthatják az igényeikhez leginkább illő termékeket, például bio, vegán vagy zero waste kategóriákban. Emellett az értékelési és közösségi funkciók révén a felhasználók visszajelzést adhatnak, megoszthatják tapasztalataikat másokkal, ezáltal egy támogató, fenntarthatóságra épülő közösség részeivé válhatnak.</p>
+    <p>Ez az alkalmazás egy átlátható, felhasználóbarát felületet biztosít, amely összeköti a környezettudatos vásárlókat a helyi termelőkkel, és lehetőséget ad a fenntartható, helyi gazdaság támogatására.</p>
+    
+    <br>
+
+
+  <h1 class="western"><a id="2"></a> 2. Áttekintés</h1>
+
+    <p>Ez a fejezet összefoglalja az alkalmazás szempontjából fontos általános körülményeket, megvilágítva a specifikus követelmények mögötti hátteret. Célja, hogy segítse a következő fejezetekben részletezett információk megértését, és keretet adjon az alkalmazás kontextusának és működésének.</p>
+    <p>Az alábbiak tartoznak ide:</p>
+
+    <ul>
+      <li><b>A termék környezete:</b> A lokális fenntartható piac applikáció a helyi termelőket és fenntartható termékeket előnyben részesítő vásárlókat célozza meg, támogatva a környezettudatos döntéseket és a közösségi gazdaságot.</p></li>
+      <li><b>Legfontosabb funkciók:</b>Térkép- és keresőfunkció, szűrők (bio, vegán, zero waste stb.), közösségi értékelési rendszer, szállítási lehetőségek a helyi termelőktől.</p></li>
+      <li><b>A felhasználók jellemzői:</b> Elsősorban környezettudatos vásárlók és helyi termelők, akik érdeklődnek a fenntartható termékek és ökológiai szemlélet iránt.</p></li>
+      <li><b>Korlátozások:</b> A rendszer működése függ a helymeghatározástól, internetkapcsolattól, és a helyi termelők adatbázisától, amely idővel bővülhet.</p></li>
+      <li><b>Feltételezések és függőségek:</b> Feltételezzük, hogy a felhasználók rendelkeznek megfelelő mobil eszközökkel, és hozzáférnek az internethez. Függőség például a Google Maps API használata a térképfunkciókhoz.</p></li>
+      <li><b>A követelmények csoportosításának szempontjai:</b> A követelményeket funkcionális és nem-funkcionális szempontok szerint csoportosítjuk, például felhasználói élmény, adatbiztonság, és hozzáférhetőség alapján.</p></li>
+    </ul>
+
+    <br>
+
+  <h1 class="western"><a id="3"></a> 3. A rendszer funkciói (Specific Requirements) </h1>
+
+    <p>Ebben a szakaszban összefoglaljuk a rendszerrel szemben támasztott funkcionális követelményeket, amelyek a helyi fenntartható piac alkalmazás funkcióit foglalják magukban. Az alábbiakban természetes nyelven ismertetjük a főbb követelményeket, és használhatók use case diagramok a részletesebb bemutatásra.</p>
+
+    <h2 class="western"><a id="3.1"></a>3.1 Funkcionális követelmények </h2>
+      <ol>
+          <li><b>Lokális piac térkép</b>
+              <ul>
+                  <li>A rendszer képes megjeleníteni a felhasználó aktuális helyzete alapján a közeli fenntartható piacokat és termelőket.</li>
+                  <li>Felhasználók szűrhetik a térképen látható lehetőségeket kategóriák szerint (pl. bio, vegán, zero waste). </li>
+              </ul>
+          </li>   
+          <li><b>Termékkereső</b>
+              <ul>
+                  <li>A felhasználók képesek keresni különböző fenntartható termékek között.</li>
+                  <li>A keresési funkció támogatja a szűrési lehetőségeket, hogy a felhasználók könnyen megtalálják az igényeiknek megfelelő termékeket.</li>
+              </ul>
+          </li>
+          <li><b>Szállítási opciók</b>
+              <ul>
+                  <li>A rendszer tájékoztatja a felhasználókat a helyi termelőktől elérhető szállítási lehetőségekről.</p></li>
+                  <li>Felhasználók rendelhetnek a termelőktől közvetlenül az alkalmazáson keresztül.</p></li>
+              </ul>
+          </li>
+          <li><p><b>Közösségi funkciók</b></p>
+              <ul>
+                  <li>A felhasználók értékelhetik a helyeket és a termékeket.</li> 
+                  <li>Lehetőség van vélemények írására és megosztására.</li>
+              </ul> 
+          </li>
+      </ol>
+    <br>
+
+    <h2 class="western"><a id="3.2"></a>3.2 Use Case Diagram </h2>
+
+    <img src="use_case.png">
+    <br>
+
+    <p><b>Aktorok</b></p>
+
+    <ul>
+      <li><b>Felhasználó: </b>A rendszer végfelhasználója, aki fenntartható termékeket keres.</li>  
+      <li><b>Termelő:</b> Helyi termelő, aki termékeit a rendszerben értékesíti.</li>
+      <li><b>Adminisztrátor:</b> A rendszer karbantartásáért és a felhasználói tartalmak kezeléséért felelős személy.</li> 
+    </ul>
+
+    <br>
+
+    <p><b>Use Case-ek</b></p>
+    <ol>
+      <li><b>Lokális piac keresése</b>
+        <ul>
+          <li><b>Rövid leírás:</b>A felhasználó megkeresi a közeli fenntartható piacokat.</li> 
+          <li><b>Prekondíciók:</b>A felhasználó be van jelentkezve az alkalmazásba.</li> 
+          <li><b>Postkondíciók:</b>A felhasználó látja a közelében elérhető piacokat a térképen.</li> 
+          <li><b>Szokásos működés:</b>
+            <ol>
+              <li>A felhasználó megnyitja a térképet.</li> 
+              <li>A rendszer megjeleníti a közelében lévő piacokat.</li>
+            </ol>
+          </li>
+          <li><b>Alternatív esetek:</b>A felhasználó nem talál piacot a közelében.</li>
+          <li><b>Kivételes esetek:</b>A rendszer nem tudja megállapítani a felhasználó helyét.</li>
+        </ul>
+      </li>
+
+      <li><b>Termék keresése</b>
+        <ul>
+          <li><b>Rövid leírás:</b>A felhasználó kereshet különböző fenntartható termékek között.</li> 
+          <li><b>Prekondíciók:</b>A felhasználó be van jelentkezve az alkalmazásba.</li> 
+          <li><b>Postkondíciók:</b>A felhasználó megkapja a keresési találatokat.</li> 
+          <li><b>Szokásos működés:</b>
+            <ol>
+              <li>A felhasználó beírja a keresett termék nevét.</li> 
+              <li>A rendszer megjeleníti a találatokat.</li>
+            </ol>
+          </li>
+          <li><b>Alternatív esetek:</b>Nincs találat a keresésre.</li>
+          <li><b>Kivételes esetek:</b>A keresési folyamat megszakad.</li>
+        </ul>
+      </li>
+      <li><b>Rendelés leadása</b>
+        <ul>
+          <li><b>Rövid leírás:</b>A felhasználó rendelést ad le a termelőktől.</li> 
+          <li><b>Prekondíciók:</b>A felhasználónak van kiválasztott terméke.</li> 
+          <li><b>Postkondíciók:</b>A rendszer rögzíti a rendelést.</li> 
+          <li><b>Szokásos működés:</b>
+            <ol>
+              <li>A felhasználó kiválasztja a terméket.</li> 
+              <li>A felhasználó megadja a szállítási adatokat.</li>
+              <li>A rendszer megerősíti a rendelést.</li>
+            </ol>
+          </li>
+          <li><b>Alternatív esetek:</b>Nincs találat a keresésre.</li>
+          <li><b>Kivételes esetek:</b>A keresési folyamat megszakad.</li>
+        </ul>
+      </li>
+      <li><b>Termékértékelés</b>
+        <ul>
+          <li><b>Rövid leírás:</b>A felhasználó értékeli a megvásárolt termékeket.</li> 
+          <li><b>Prekondíciók:</b>A felhasználó megvásárolta a terméket.</li> 
+          <li><b>Postkondíciók:</b>Az értékelés megjelenik a rendszerben.</li> 
+          <li><b>Szokásos működés:</b>
+            <ol>
+              <li>A felhasználó kiválasztja az értékelni kívánt terméket.</li> 
+              <li>A felhasználó megadja az értékelés részleteit.</li>
+              <li>A rendszer rögzíti az értékelést.</li>
+            </ol>
+          </li>
+          <li><b>Alternatív esetek:</b>A felhasználó módosítja az értékelését.</li>
+          <li><b>Kivételes esetek:</b>A rendszer nem tudja menteni az értékelést.</li>
+        </ul>
+      </li>
+    </ol>
+    <br>
+
+    <h2 class="western"><a id="3.3"></a> 3.3 Use Case-ek kapcsolatainak leírása </h2>
+      <p>A use case-ek közötti kapcsolatok a következőképpen alakulnak:</p>
+
+      <ul>
+        <li>A <b>Lokális piac keresése</b> use case elősegíti a <b>Termék keresése</b> use case-t, mivel a felhasználó általában a piac keresése után kezdi el a termékek keresését.</li>
+        <li>A <b>Termék keresése</b>use case szorosan kapcsolódik a <b>Rendelés leadása</b> use case-hez, mivel a felhasználónak a keresett termékeket kell megismernie, mielőtt rendelést adna le.</li>
+        <li>A <b>Rendelés leadása</b> use case a <b>Termékértékelés</b> use case-t is támogatja, mivel a felhasználónak szüksége van a termékek megvásárlására, hogy értékelhesse azokat.</li> 
+      </ul>
+
+      <p>Ez a szakasz összefoglalja a helyi fenntartható piac alkalmazás funkcionális követelményeit, amely lehetővé teszi a felhasználók számára, hogy könnyen megtalálják a fenntartható termékeket és kapcsolatba lépjenek a helyi termelőkkel.</p>
+
+
+  <h1 class="western"><a id="4"></a>4. Használhatóság </h1>
+
+    <p>Ebben a fejezetben a rendszer használhatóságát befolyásoló nem-funkcionális követelményeket részletezzük, külön figyelmet fordítva a betanulási időre, felhasználói élményre és kompatibilitásra. Minden követelmény egy-egy alpontban szerepel.</p>
+    <br>
+
+    <h2 class="western"><a id="4.1"></a> 4.1 Betanulási idő </h2>
+      <ul>
+        <li><b>Kezdő felhasználók számára:</b> A rendszer betanulása várhatóan rövid időt igényel, mivel az egyszerű navigációs felület és könnyen elérhető súgó segíti a tanulást. Egy kezdő felhasználónak körülbelül 15-20 perc szükséges az alapvető funkciók megismeréséhez.</li>   
+        <li><b>Gyakorlott felhasználók számára:</b> Azok számára, akik már ismerősek más vásárlói vagy térkép-alapú alkalmazásokkal, a rendszer használata csupán 5-10 perc gyakorlást igényel.</li>
+      </ul>
+    <br>
+
+    <h2 class="western"><a id="4.2"></a> 4.2 Tevékenység végrehajtási idő </h2>
+      <ul>
+        <li>Egy átlagos felhasználó a térképes piackeresés és egy konkrét termék megtalálása során körülbelül 1-2 percet vesz igénybe a keresett termék megtalálásához. Az alkalmazás célja, hogy gyorsabbá és hatékonyabbá tegye a keresést a hagyományos módszerekkel vagy egyéb rendszerekkel összehasonlítva.</li>
+      </ul>
+    <br>
+    <h2 class="western"><a id="4.3"></a> 4.3 A kezdő felhasználók betanulását segítő tulajdonságok </h2>
+      <ul>
+        <li><b>Interaktív súgó és útmutató:</b>Az alkalmazás beépített útmutatóval és súgóval rendelkezik, amely lépésről lépésre végigvezeti a felhasználót a legfontosabb funkciókon az első bejelentkezéskor.</li>
+        <li><b>Egyszerűen használható felhasználói felület: </b> Az egyszerű, intuitív kialakítás csökkenti a betanulási időt és segíti az új felhasználók eligazodását.</li>   
+      </ul>
+    <br>
+
+    <h2 class="western"><a id="4.4"></a> 4.4 Betanulási támogatás lehetőségei</h2>
+      <ul>
+        <li><b>Dokumentáció: </b>Részletes felhasználói kézikönyv áll rendelkezésre az alkalmazáson belül és a weboldalon, amely bemutatja a fő funkciókat.</li>
+        <li><b>Oktatóvideók és tréninganyagok:</b>Lehetőség van oktatóvideók készítésére, amelyek szemléltetik az alkalmazás használatát. Szükség esetén egyedi tréninganyag is elérhető külön díjazás fejében.</li>
+      </ul>
+    <br>
+    <h2 class="western"><a id="4.5"></a> 4.5 Felhasználói felület hasonlósága más alkalmazásokkal </h2>
+      <ul>
+        <li>A felhasználói felület kialakítása szorosan követi a piacon elterjedt térképes és piactér-applikációk struktúráját. A már meglévő hasonló alkalmazások (pl. Google Maps) mintájára készült, hogy megkönnyítse a használatot és rövidítse a betanulási időt.</li> 
+      </ul>
+    <br>
+
+    <h2 class="western"><a id="4.6"></a> 4.6 Kompatibilitás más alkalmazásokkal </h2>
+      <ul>
+        <li>Az alkalmazás egyértelműen integrálható olyan alkalmazásokkal, amelyeket a felhasználók a helyi piactérhez kapcsolódóan használnak (például naptárak, jegyzetelő eszközök). A felület összhangban van a tipikus mobilalkalmazások kialakításával, hogy megkönnyítse a párhuzamos használatot.</li>    
+      </ul>
+    
+    <br>
+
+  <h1 class="western"><a id="5"></a> 5. Megbízhatósági követelmények </h1>
+
+    <p>Ebben a fejezetben bemutatjuk az alkalmazással szemben támasztott megbízhatósági követelményeket, melyek garantálják a rendszer stabil és kiszámítható működését</p>
+
+    <h2 class="western"><a id="5.1"></a> 5.1 Rendelkezésre állás </h2>
+      <ul>
+        <li><b>Teljes használhatóság:</b> Az alkalmazásnak a hét minden napján, napi 24 órában elérhetőnek kell lennie. Az elvárt rendelkezésre állás minimum 97%. </li>    
+        <li><b>Karbantartási idő: </b>Tervezett karbantartási időt havonta maximum 2 óra időtartamban határozunk meg, amelyet a felhasználók előre értesítést kapnak.</li>   
+        <li><b> Korlátozott használhatóság: </b> Részleges leállások (például adatfrissítés) alatt a legfontosabb funkciók, mint a termék- és piacböngészés elérhetőek maradnak, bár csökkentett funkcionalitással.</li>   
+      </ul>
+
+    <br>
+
+    <h2 class="western"><a id="5.2"></a> 5.2 MTBF (Mean Time Between Failures) </h2>
+      <ul>
+        <li><b>Átlagos hiba nélküli működési idő:</b> A rendszernek legalább <b>2000 óra</b> MTBF-t kell elérnie, ami a hibatűrésre és a stabil működésre vonatkozó magas követelményt biztosít.</li>
+      </ul>
+
+    <br>
+
+    <h2 class="western"><a id="5.3"></a> 5.3 MTTR (Mean Time To Repair) </h2>
+      <ul>
+        <li><b>Hibajavítási idő:</b>Hibás működés esetén a rendszer legkésőbb <b>2 órán belül</b> visszaállítható kell, hogy legyen az optimális működési állapotába.</li>
+      </ul>
+
+    <br>
+
+    <h2 class="western"><a id="5.4"></a> 5.4 A rendszer eredményeinek pontossága </h2>
+      <ul>
+        <li><b>Adatpontosság </b> Az alkalmazás adatainak – például a termékek elérhetőségének és árinformációinak – <b>legalább 95%-os pontossággal</b> kell tükrözniük a valós helyzetet.</li>    
+        <li><b>Felbontás: </b> A térképes megjelenítés pontossága <b>10 méteren belüli felbontással</b> kell, hogy működjön a pontos helymeghatározás érdekében, így a felhasználók a közeli termelőket pontosan megtalálhatják.</li>    
+      </ul>
+
+    <br>
+  <!--Levi: Eddig tudtam megcsinálni, holnap folytatom-->
+
+  <h1 class="western"><a id="6"></a> 6.Teljestítménykövetelmények</h1>
+
+    <p>Ebben a fejezetben összefoglaljuk az alkalmazással szemben támasztott teljesítménykövetelményeket, amelyek biztosítják, hogy a rendszer a felhasználók számára gyors és megbízható működést nyújtson.</p>
+
+    <h2 class="western"><a id="6.1"></a> 6.1 Válaszidők </h2>
+      <ul>
+        <li>b>Leggyakrabban használt funkciók válaszideje:</b> Az alkalmazás térképmegtekintési és keresési funkcióinak válaszideje <b>1 másodpercen belüli</b> kell, hogy legyen a gyors felhasználói élmény érdekében.</li>
+      </ul>
+      <br>
+
+    <h2 class="western"><a id="6.2"></a> 6.2 Áteresztőképesség: </h2>
+      <ul>
+        <li><b>Tranzakciók sebessége:</b>Az alkalmazás legalább <b>50 tranzakció/másodperc</b> feldolgozására képes kell legyen a csúcsidők során is, hogy biztosítsa a felhasználói keresések és adatlekérdezések zökkenőmentes végrehajtását.</li>    
+      </ul>
+    <br>
+
+    <h2 class="western"><a id="6.3"></a> 6.3 Kapacitás: </h2>
+      <ul>
+        <li><b>Maximális adatbázis-méret:</b> Az adatbázis kapacitása <b>5 GB</b>méretig biztosítja az adatok kezelését a kezdeti fázisban, és lehetőséget ad a jövőbeni bővítésre.</li>
+        <li><b>Egyidejű felhasználók száma:</b>Az alkalmazás egyidejűleg legalább <b>500 aktív felhasználót</b> képes kiszolgálni, hogy minden látogató számára biztosítsa a stabil és folyamatos működést.</li>
+      </ul>
+      <br>
+
+    <h2 class="western"><a id="6.4"></a> 6.4 Korlátozott használhatóság idején elvárt teljesítmény: </h2>
+      <ul>
+        <li><b>Korlátozott működés:</b> A tervezett karbantartás időtartama alatt a legfontosabb funkciók, mint a keresés és térképhasználat, <b>50%-os teljesítménnyel</b> továbbra is elérhetőek maradnak, így a felhasználók alapvető hozzáféréssel rendelkeznek.</li>    
+      </ul>
+    <br>
+
+    <h2 class="western"><a id="6.5"></a> 6.5 Erőforrásigények: </h2>
+      <ul>
+        <li><b>Processzorigény:</b>A szerver oldalán legalább <b>2 GHz-es többmagos processzor</b> szükséges a rendszer optimális futásához.</li>   
+        <li><b>Memóriaigény:</b>A rendszer számára <b>8 GB RAM szükséges</b>, hogy biztosítsa a megfelelő adatkezelési kapacitást.</li>      
+        <li><b>Tárhelyigény:</b>Az alkalmazás adatbázisának és médiaelemeinek tárolására <b>20 GB tárhely</b> biztosítása szükséges.</li>    
+        <li><b>Sávszélesség:</b>A szerveroldali kapcsolatnak legalább <b>100 Mbps</b> sebességet kell nyújtania a stabil adatátvitelhez.</li>    
+      </ul>
+    <br>
+
+  <h1 class="western"><a id="7"></a>7. Támogatottsági követelmények </h1>
+    <p>Ebben a fejezetben összefoglaljuk azokat a követelményeket, amelyek az alkalmazás üzembe helyezését és karbantartását támogatják, biztosítva a hatékony hibakeresést és finomhangolást. </p>
+    <br>
+
+    <h2 class="western"><a id="7.1"></a> 7.1 Kódolási szabványok és elnevezési konvenciók </h2>
+      <ul>
+        <li><b>Kódolási szabványok: </b>A fejlesztés során a PEP 8 Python kódolási szabványt követjük, hogy biztosítsuk a kód olvashatóságát és konzisztenciáját.</li>    
+        <li><b>Elnevezési konvenciók: </b>Az elnevezési szabályok magukban foglalják a változók, függvények és osztályok egyértelmű és következetes elnevezését, hogy megkönnyítsék a karbantartást és a kód átláthatóságát.</li>      
+      </ul>
+    <br>
+
+    <h2 class="western"><a id="7.2"></a> 7.2 Karbantartóknak és üzemeltetőknek szánt funkciók </h2>
+      <ul>
+        <li><b>Adminisztrációs funkciók: </b> Az alkalmazás külön adminisztrációs felületet biztosít a karbantartóknak, ahol nyomon követhetik a rendszer állapotát, kezelhetik a felhasználói adatokat és elvégezhetik a szükséges beállításokat.</li>   
+        <li><b>Adatbázis-menedzsment funkciók: </b> A karbantartók hozzáférést kapnak olyan funkciókhoz, amelyek lehetővé teszik az adatbázis karbantartását, például a régi adatok archiválását és a gyorsítótár tisztítását.</li>     
+      </ul>
+    <br>
+
+    <h2 class="western"><a id="7.3"></a> 7.3 Naplózás </h2>
+      <ul>
+        <li><b>Naplók készítése:</b> Az alkalmazás naplózza a fontosabb eseményeket, például a bejelentkezéseket, tranzakciókat és hibákat, amelyek segítik a hibakeresést és a rendszer működésének finomhangolását.</li> 
+        <li><b>Naplóformátum:</b>A naplók JSON formátumban tárolódnak, hogy megkönnyítsék az automatizált elemzést és gyors visszakeresést.</li>   
+      </ul>
+    <br>
+
+    <h2 class="western"><a id="7.4"></a> 7.4 Segédalkalmazások </h2>
+      <ul>
+        <li><b>Naplóelemző eszközök:</b> A naplók kiértékeléséhez és az esetleges hibák gyors azonosításához külön naplóelemző eszközöket integrálunk, amelyek lehetővé teszik a karbantartók számára a részletes elemzést.</li>  
+        <li><b>Rendszermonitorozó eszközök:</b> Olyan monitorozó eszközök beépítése is megvalósul, amelyek a rendszer teljesítményét és erőforráshasználatát figyelik, így időben azonosíthatók az esetleges kapacitásbeli problémák.</li>     
+      </ul>
+    <br>
+
+  <h1 class="western"><a id="8"></a> 8. Tervezési korlátozások </h1>
+
+    <p>Ebben a fejezetben felsoroljuk azokat a tervezési korlátozásokat, amelyek a fejlesztés során irányt adnak az alkalmazás megvalósításához, valamint a technológiai választásokat és a fejlesztési folyamat szabályait.</p>
+    <br>
+
+    <h2 class="western"><a id="8.1"></a> 8.1 Architektúra előírásai </h2>
+
+      <ul>
+        <li><b>Háromrétegű architektúra:</b> Az alkalmazást három fő rétegre (prezentációs, logikai és adatkezelő réteg) építjük, hogy megkönnyítsük a karbantartást és biztosítsuk a moduláris szerkezetet.</li>    
+      </ul>
+    <br>
+
+    <h2 class="western"><a id="8.2"></a> 8.2 Programozási nyelvek </h2>
+      <ul>
+        <li><b>Python: </b> Az alkalmazás fő fejlesztési nyelve Python, különösen a szerveroldali logika megvalósítására. Az ügyféloldalon JavaScript, HTML és CSS használata is szükséges a felhasználói felület kialakításához.</li>    
+      </ul>
+    <br>
+
+    <h2 class="western"><a id="8.3"></a> 8.3 Fejlesztőeszközök </h2> 
+      <ul>
+        <li><b>Fejlesztési környezet:</b> A Visual Studio Code ajánlott fejlesztői környezet, valamint szükséges a Git használata a verziókövetéshez és a csapatmunka támogatásához.</li>    
+        <li><b>Mobilplatform-eszközök:</b> Az alkalmazás Android és iOS platformra is telepíthető lesz, a Flutter és az Android Studio a szükséges mobilfejlesztési eszközök.</li>       
+      </ul>
+    <br>
+
+    <h2 class="western"><a id="8.4"></a> 8.4 Újra felhasználható elemek </h2>
+      <ul>
+        <li><b>Könyvtárak és API-k:</b>A fejlesztés során olyan Python és JavaScript könyvtárak (pl. Django, Flask) használata szükséges, amelyek segítik a szerveroldali logika gyors megvalósítását és biztosítják a hatékony adatkezelést.</li>    
+        <li><b>Komponensek és osztálykönyvtárak:</b> A már elérhető nyílt forráskódú komponensek beépítése javasolt a térképes megjelenítéshez és felhasználói hitelesítéshez.</li>     
+      </ul>
+      <br>
+
+    <h2 class="western"><a id="8.5"></a> 8.5 Fejlesztési módszertan </h2>
+      <ul>
+        <li><b>Agilis fejlesztési módszertan:</b> A fejlesztés során iteratív módszertant követünk, amely lehetővé teszi a gyors visszajelzések kezelését és a folyamatos fejlesztést, így minden mérföldkő után kiértékelhetőek az elért eredmények és az esetleges módosítások.</li>    
+      </ul>
+      <br>
+
+
+  <h1 class="western"><a id="9"></a>9. Online dokumentáció és Help rendszer</h1>
+
+    <p>Az alkalmazáshoz szükséges egy könnyen hozzáférhető, online felhasználói dokumentáció és Help rendszer, amely segíti a felhasználókat az alapvető funkciók megismerésében és hatékony használatában.</p>
+    <br>
+
+    <h2 class="western"><a id="9.1"></a> 9.1 Online dokumentáció </h2>
+      <ul>
+        <li><b>Tartalom:</b>A dokumentáció magában foglalja az alkalmazás funkcióinak részletes leírását, használati útmutatókat, és gyakori kérdéseket (GYIK), hogy a felhasználók gyorsan megtalálják a választ az alapvető problémákra.</li>
+        <li><b>Formátum:</b>Webalapú formában, a mobilalkalmazásból közvetlenül elérhető, hogy bármikor kéznél legyen.</li> 
+      </ul>
+    <br>
+
+    <h2 class="western"><a id="9.2"></a> 9.2 Beépített Help rendszer </h2>
+      <ul>
+        <li><b>Help funkciók:</b>Az alkalmazás főbb funkcióihoz kapcsolódó interaktív súgókat is biztosítunk, amelyek lépésről lépésre végigvezetik a felhasználót az adott folyamatokon, például a keresésen vagy a szűrési beállításokon.</li>    
+        <li><b>Támogatási elérhetőségek:</b> Az alkalmazás Help rendszerében elérhető egy "Kapcsolat" funkció, ahol a felhasználók közvetlenül segítséget kérhetnek, ha szükséges.</li>
+      </ul>
+      <br>
+
+  <h1 class="western"><a name="10"></a> 10. Felhasznált kész komponensek</h1>
+
+    <p>Az alkalmazás fejlesztéséhez felhasználni tervezett, harmadik féltől származó komponensek listája:</p>
+    <br>
+
+    <h2 class="western"><a id="10.1"></a> 10.1 Nyílt forráskódú komponensek </h2>
+      <ul>
+        <li><b>Ktor:</b>Kotlin alapú szerveroldali keretrendszer, amely hatékony és egyszerű eszközkészletet biztosít a szerveroldali logika megvalósításához. Licenc: Apache 2.0. Ingyenes használatot biztosít, és lehetővé teszi a módosítást és terjesztést, miközben előírja a licenc megjelölését.</li>    
+        <li><b>Leaflet.js:</b>Nyílt forráskódú JavaScript könyvtár térképes megjelenítéshez. Licenc: BSD-2 licenc, amely lehetővé teszi az ingyenes használatot, módosítást és integrálást, de a licenc megjelölését előírja.</li>        
+        <li><b>Flutter:</b>Mobil alkalmazás fejlesztési keretrendszer, amely Android és iOS platformon is támogatja az alkalmazás futtatását. Licenc: BSD licenc. Nyílt forráskódú, és megkönnyíti a cross-platform fejlesztést.</li>       
+      </ul>
+    <br>
+
+    <h2 class="western"><a id="10.2"></a> 10.2 Harmadik féltől vásárolt elemek </h2>
+      <ul>
+        <li>A fejlesztési terv jelenlegi szakaszában nem szükséges fizetős komponens. Ha később szükség lenne ilyenre, akkor részletesen rögzítjük a költségeket és a licencfeltételeket.</li>    
+      </ul>
+    <br>
+
+  <h1 class="western"><a id="11"></a> 11.Interfészek</h1>
+
+    <p>Ebben a fejezetben részletesen ismertetjük a rendszer felhasználói, hardver, szoftver és kommunikációs interfészeit, melyek biztosítják a külső kapcsolódásokat és az alkalmazás működéséhez szükséges integrációkat.</p>
+    <br>
+
+    <h2 class="western"> <a id="11.1"></a> 11.1 Felhasználói interfészek (User Interfaces)</h2>
+
+      <ul>
+        <li>UI szabványok és stílusok:</b> A felhasználói felület fejlesztése során az anyagtervezési (Material Design) elveket követjük, amelyek biztosítják a modern, intuitív és platformfüggetlen megjelenést, összhangban az Android és iOS szabványokkal.</li> 
+        <li><b>Felhasználói csoportok igényei:</b>
+          <ul>
+            <li><b>Kezdő felhasználók:</b>Egyszerűen navigálható, könnyen érthető interfészek, amelyek tartalmaznak vizuális útmutatásokat és tippeket.</li>
+            <li><b>Haladó felhasználók:</b>Rövidebb munkafolyamatok, gyors elérést biztosító opciók, például testreszabható szűrők és előzmények mentése.</li>
+          </ul>
+        </li>
+        <li><b>Fontos UI elemek:</b></li>    
+          <ul>
+            <li><b>Navigációs menü:</b> Kategóriák és funkciók gyors elérésére szolgál, logikusan elhelyezve a felhasználói élmény javítása érdekében.</li>
+            <li><b>Térképes nézet:</b>A közeli piacok és termékek vizuális megjelenítése térképen a Leaflet.js használatával.</li>
+            <li><b>Termékkereső és szűrő:</b>Részletes keresési és szűrési opciók fenntarthatósági kritériumok alapján (pl. bio, zero waste).</li>
+          </ul>
+      </ul>
+    <br>
+
+    <h2 class="western"> <a id="11.2"></a> 11.2 Hardver interfészek (Hardware Interfaces) </h2>
+      <ul>
+        <li><b>Helymeghatározás:</b> A rendszer a mobil eszköz helymeghatározó funkcióját (GPS) használja a közeli piacok megjelenítéséhez és a tartózkodási helyre vonatkozó szűrések alkalmazásához.</li>
+        <li><b>Kamera hozzáférés:</b> Termékek és piacok számára fotó feltöltési lehetőség, a kamera és a galéria hozzáférésen keresztül.</li>    
+      </ul>
+    <br>
+
+    <h2 class="western"> <a id="11.3"></a> 11.3. Software interfészek </h2>
+
+      <ul>
+        <li><b>Adatbázis interfész:</b>Kotlin alapú adatbáziskapcsolat biztosítja a felhasználói és termékadatok kezelését. Az adatbázis struktúra a tranzakciók gyors feldolgozását és a termékinformációk folyamatos frissítését támogatja.</li>  
+        <li><b>Külső API integrációk:</b></p>
+          <ul>
+            <li><b>Fizetési rendszerek:</b>Harmadik féltől származó fizetési szolgáltatások, például Stripe vagy PayPal API-k, hogy a vásárlási tranzakciók biztonságosan és gördülékenyen történjenek.</li> 
+            <li><b>Térképszolgáltatások:</b>Google Maps vagy OpenStreetMap API a helyszínek megjelenítésére és navigációra a felhasználók számára.</li>   
+          </ul>
+        </li>
+    </ul>
+    <br>
+
+    <h2 class="western"> <a id="11.4"></a>11.4 Kommunikációs interfészek (Communications Interfaces)</h2>
+
+      <ul>
+        <li><b>Internet kapcsolat:</b>A rendszer működéséhez stabil internetkapcsolat szükséges az adatbázishoz, API-khoz és térképszolgáltatásokhoz való hozzáféréshez</li> 
+        <li><b>Push értesítések:</b>Firebase vagy más push értesítési szolgáltatás integrációja a fontos eseményekről (pl. új termékek elérhetősége, piac frissítések) való értesítéshez.</li>   
+        <li><b>Adatátvitel titkosítása:</b>Az adatokat HTTPS protokollon keresztül, titkosítva továbbítjuk, amely biztosítja a felhasználói és tranzakciós adatok biztonságát.</li>   
+      </ul>
+    <br>
+
+    <h1 class="western"><a name="12"></a>12.Alkalmazott szabványok</h1>
+
+    <p>Ez a fejezet összefoglalja azokat a szabványokat és előírásokat, amelyeket a fejlesztés, üzemeltetés és használat során be kell tartani a rendszer megbízhatósága, biztonsága és jogszerűsége érdekében. Az alkalmazás fejlesztése és működése során a következő kötelező szabványokat vesszük figyelembe:</p>
+    <br>
+
+      <h2 class="western"> <a id="12.1"></a> 12.1 Kötelezően alkalmazandó szabványok (Mandatory Standards) </h2>
+
+        <ul>
+          <li><b>GDPR (General Data Protection Regulation): </b>Az alkalmazás fejlesztése során betartjuk az EU által meghatározott általános adatvédelmi rendeletet. Ez biztosítja a felhasználók személyes adatainak biztonságát, az adatok kezelésének átláthatóságát és a felhasználói beleegyezés biztosítását az adatkezelés során.</li>    
+          <li><b>PSD2 (Payment Services Directive 2):</b>Mivel az alkalmazás integrált fizetési szolgáltatásokat nyújthat, a PSD2 szabályozás figyelembevétele szükséges a pénzügyi tranzakciók biztonságos lebonyolításához és a kétfaktoros hitelesítési követelmények teljesítéséhez.</li>       
+          <li><b>ISO/IEC 27001 - Információbiztonság:</b>A felhasználói adatok és a rendszer integritásának védelme érdekében a fejlesztés során az ISO 27001 információbiztonsági szabvány ajánlásait követjük, hogy minimalizáljuk a biztonsági kockázatokat.</li>      
+          <li><b>W3C Web Accessibility Standards (WCAG): </b>Az alkalmazás felhasználói felületének fejlesztésekor a W3C akadálymentességi szabványait (Web Content Accessibility Guidelines) figyelembe vesszük, hogy az alkalmazás minden felhasználó számára hozzáférhető legyen, ideértve a fogyatékkal élőket is.</li>        
+        </ul>
+      <br>
+
+    <h2 class="western"><a id="12.2"></a> 12.2 Választás alapján alkalmazott szabványok (Optional Standards)</h2>
+      <p>Ebben a szakaszban összegyűjtjük azokat a szabványokat és ajánlásokat, amelyeket a fejlesztők vagy a felhasználók saját döntésük alapján, de nem kötelezően alkalmaznak. Ezek a szabványok célja, hogy javítsák a rendszer minőségét, használhatóságát vagy interoperabilitását. A következő választás alapján alkalmazott szabványokat vesszük figyelembe:</p>
+
+      <ul>
+        <li><b>ISO 9241 - Ergonomics of Human-System Interaction:</b> Ez a szabvány az emberi észlelés és interakció szempontjait figyelembe véve segít az alkalmazás használhatóságának javításában. A fejlesztés során a felhasználói felület kialakításánál ezt a szabványt is figyelembe vesszük.</li>  
+        <li><b>REST (Representational State Transfer): </b> Az API-k tervezésére vonatkozó architektúra, amely elősegíti a különböző rendszerek közötti zökkenőmentes kommunikációt. A REST alkalmazása egyszerűsíti a fejlesztést és növeli a rendszer rugalmasságát.</li>     
+        <li><b>OpenAPI Specification:</b> A rendszer API-jának dokumentálására és tervezésére szolgáló szabvány, amely lehetővé teszi a fejlesztők számára, hogy könnyen megértsék az API működését, és elősegíti a harmadik fél fejlesztőkkel való együttműködést.</li>   
+        <li><b>Agile Development Methodologies: </b>A fejlesztési folyamat során a választás alapján alkalmazott agilis módszertanok, mint például a Scrum vagy a Kanban, hozzájárulnak a projekt rugalmasságához és az ügyfél visszajelzések gyors beépítéséhez.</li>  
+        <li><b>CI/CD (Continuous Integration / Continuous Deployment):</b>A folyamatos integráció és telepítés szabványai, amelyek a fejlesztési ciklusok automatizálására összpontosítanak, lehetővé téve a gyorsabb hibajavítást és az új funkciók bevezetését.</li>  
+      </ul>
+    <br>
+  </body>
+</html>
