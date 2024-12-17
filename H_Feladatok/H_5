@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMT Objektumtervezési Fázis - H5</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2rem; line-height: 1.6; }
+        h1, h2, h3 { color: #2C3E50; }
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        table, th, td { border: 1px solid #ccc; }
+        th, td { padding: 0.5rem; text-align: left; }
+        ul { margin: 1rem 0; padding-left: 1.5rem; }
+        .diagram { text-align: center; margin: 2rem 0; }
+        img { max-width: 80%; height: auto; }
+        pre { background-color: #f4f4f4; padding: 1rem; border-radius: 5px; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <h1>OMT Objektumtervezési Fázis - H5</h1>
+
+    <h2>1. A rendszer vezérlésének kidolgozása</h2>
+    <p>A rendszer vezérlését az alábbi objektumok biztosítják:</p>
+    <ul>
+        <li><strong>Aktív objektumok:</strong>
+            <ul>
+                <li><strong>Felhasználó</strong>: A rendszer végfelhasználója, aki keres és rendel termékeket.</li>
+                <li><strong>Adminisztrátor</strong>: A rendszer felügyelője, aki adminisztrálja a termékeket, piacokat és a felhasználókat.</li>
+                <li><strong>Termelő</strong>: A termékeket biztosító szolgáltató.</li>
+            </ul>
+        </li>
+        <li><strong>Passzív objektumok:</strong>
+            <ul>
+                <li><strong>Termék</strong>: A piacokon elérhető termékek.</li>
+                <li><strong>Piac</strong>: A termékek elérhetőségeit biztosító piacok.</li>
+                <li><strong>Rendelés</strong>: A felhasználók által leadott rendeléseket tartalmazó objektum.</li>
+            </ul>
+        </li>
+        <li><strong>Vezérlő objektumok:</strong>
+            <ul>
+                <li><strong>Rendeléskezelő</strong>: A rendeléseket kezelő modul.</li>
+                <li><strong>Térképes kereső</strong>: Piacok és termékek keresését biztosító modul.</li>
+                <li><strong>Értékelési modul</strong>: A felhasználói visszajelzések és értékelések kezelése.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>2. Az osztályok közötti kapcsolatok implementálása</h2>
+    <p>Az osztályok közötti kapcsolatok és a szükséges implementációs osztályok:</p>
+    <table>
+        <tr>
+            <th>Kapcsolat</th>
+            <th>Osztályok</th>
+            <th>Leírás</th>
+        </tr>
+        <tr>
+            <td>Felhasználó → Termék</td>
+            <td>Felhasználó, Termék</td>
+            <td>A felhasználó keres és rendel termékeket.</td>
+        </tr>
+        <tr>
+            <td>Termelő → Termék</td>
+            <td>Termelő, Termék</td>
+            <td>A termelő adja a terméket a rendszerhez.</td>
+        </tr>
+        <tr>
+            <td>Felhasználó → Rendelés</td>
+            <td>Felhasználó, Rendelés</td>
+            <td>A felhasználó rendeléseket ad le a rendszerben.</td>
+        </tr>
+        <tr>
+            <td>Adminisztrátor → Termék</td>
+            <td>Adminisztrátor, Termék</td>
+            <td>Az adminisztrátor kezeli a termékeket és azok elérhetőségét.</td>
+        </tr>
+    </table>
+
+    <h2>3. Modulokba (csomagokba) szervezés</h2>
+    <p>A rendszer a következő modulokra van felosztva:</p>
+    <ul>
+        <li><strong>Felhasználói modul:</strong> Felhasználók regisztrálása, keresés és rendelés.</li>
+        <li><strong>Adminisztrációs modul:</strong> Adminisztrátorok kezelése, termékek és piacok karbantartása.</li>
+        <li><strong>Termékkezelő modul:</strong> Termékek adatainak kezelése, kategorizálás és szűrés.</li>
+        <li><strong>Rendeléskezelő modul:</strong> Rendelések feldolgozása és nyomon követése.</li>
+    </ul>
+
+    <h2>4. Implementációs kezdetek</h2>
+    <p>Az implementáció kezdeti szakasza a következő lépéseken alapul:</p>
+    <ul>
+        <li>Alapvető adatmodell kialakítása (PostgreSQL adatbázis).</li>
+        <li>A rendszer backend részének fejlesztése Python Django segítségével.</li>
+        <li>Frontend fejlesztés: HTML, CSS, JavaScript segítségével.</li>
+    </ul>
+    <p>Skeleton kód:</p>
+    <pre>
+# Skeleton kód (Python Django)
+from django.http import JsonResponse
+
+def keres_piac(request):
+    piacok = [{"id": 1, "helyszin": "Budapest"}]
+    return JsonResponse({"piacok": piacok})
+
+def keres_termek(request):
+    termekek = [{"id": 1, "nev": "Bio Alma", "kategoria": "Bio", "ar": 500}]
+    return JsonResponse({"termekek": termekek})
+    </pre>
+
+    <h2>5. Tesztelési terv</h2>
+    <p>A tesztelési terv a következő lépéseket tartalmazza:</p>
+    <ul>
+        <li><strong>Funkcionális tesztelés:</strong> API tesztelés, a funkciók helyes működésének ellenőrzése.</li>
+        <li><strong>Teljesítménytesztelés:</strong> A rendszer teljesítményének tesztelése (JMeter).</li>
+        <li><strong>Biztonsági tesztelés:</strong> Adatvédelmi és GDPR megfelelőség biztosítása.</li>
+    </ul>
+
+</body>
+</html>
